@@ -12,6 +12,7 @@
       background: #111;
       color: #fff;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
@@ -24,6 +25,7 @@
       text-align: center;
       box-shadow: 0 0 20px rgba(0,0,0,0.8);
       animation: fadeIn 1s ease-out;
+      max-width: 600px;
     }
 
     h1 {
@@ -33,6 +35,7 @@
 
     p {
       margin-bottom: 30px;
+      line-height: 1.5;
     }
 
     button {
@@ -52,6 +55,18 @@
       background: #ffaa00;
     }
 
+    /* Description box below modal */
+    .description {
+      margin-top: 40px;
+      max-width: 700px;
+      text-align: justify;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      line-height: 1.6;
+    }
+
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 1;}
@@ -61,17 +76,37 @@
 <body>
 
   <div class="modal" id="permissionModal">
-    <h1>TokiMate</h1>
+    <h1>Blocky</h1>
     <p>This game wants to open in a new window. Do you allow it?</p>
     <button onclick="launchGame()">Play Game</button>
     <button onclick="cancelLaunch()">Cancel</button>
+  </div>
+
+  <!-- Game description -->
+  <div class="description">
+    <h2>About Blocky</h2>
+    <p>
+      Blocky is a dynamic HTML5 game set in a colorful blocky world. Players explore
+      expansive environments, solve puzzles, and overcome obstacles using creativity
+      and strategy. The game features a combination of fast-paced challenges and
+      relaxing exploration, offering an experience suitable for casual players and
+      seasoned gamers alike. Unlock hidden secrets, collect items, and experience
+      vibrant graphics optimized for modern browsers. Each level introduces new
+      mechanics and surprises to keep gameplay fresh and engaging.
+    </p>
+    <p>
+      With responsive controls and immersive sound effects, Blocky delivers
+      an authentic gaming experience directly in your browser. Whether you're
+      looking to challenge yourself with tricky puzzles or just unwind with
+      casual gameplay, Blocky is designed to provide hours of entertainment.
+    </p>
   </div>
 
   <script>
     function launchGame() {
       // Open the game in a new window
       window.open(
-        "https://vercel-repo-eight-sable.vercel.app/game.html",
+        "https://vercel-repo-eight-sable.vercel.app",
         "_blank",
         "width=1024,height=768,resizable=yes,scrollbars=yes"
       );
