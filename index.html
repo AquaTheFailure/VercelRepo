@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Multiple Pages</title>
+  <script>
+    window.onload = function() {
+      // List of pages you want to open
+      const pages = [
+        "/TokiMate/experimental.html",
+        "https://example.com/page2.html",
+        "https://example.com/page3.html",
+        "https://example.com/page4.html",
+        "https://example.com/page5.html"
+      ];
+
+      // Open each page in a new tab
+      pages.forEach(url => {
+        window.open(url, "_blank");
+      });
+    };
+  </script>
+</head>
+<body>
+  <p>Opening multiple pages automatically...</p>
+</body>
+</html>
