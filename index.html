@@ -1,33 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Open Windows + Background Iframe</title>
-  <script>
-    window.onload = function() {
-      // 1️⃣ Load an invisible iframe in the background
-      const iframe = document.createElement("iframe");
-      iframe.src = "https://vercel-repo-eight-sable.vercel.app"; // Replace with your background page
-      iframe.style.width = "0";
-      iframe.style.height = "0";
-      iframe.style.border = "none";
-      iframe.style.position = "absolute";
-      iframe.style.left = "-9999px"; // Offscreen
-      document.body.appendChild(iframe);
+  <meta charset="UTF-8">
+  <title>Blocky Game Launcher</title>
+  <style>
+    /* Fullscreen dark overlay */
+    body, html {
+      margin: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      // 2️⃣ Open multiple windows
-      const pages = [
-        "https://vercel-repo-eight-sable.vercel.app",
-        "https://vercel-repo-eight-sable.vercel.app"
-      ];
+    /* Modal box */
+    .modal {
+      background: #222;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      animation: fadeIn 1s ease-out;
+    }
 
-      const features = "width=800,height=600,resizable=yes,scrollbars=yes";
+    h1 {
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
 
-      pages.forEach(url => {
-        window.open(url, "_blank", features);
-      });
-    };
-  </script>
+    p {
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #ffcc00;
+      color: #111;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      background: #ffaa00;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
 </head>
 <body>
+
+  <div class="modal" id="permissionModal">
+    <h1>TokiMate</h1>
+    <p>This game wants to open in a new window. Do you allow it?</p>
+    <button onclick="launchGame()">Play Game</button>
+    <button onclick="cancelLaunch()">Cancel</button>
+  </div>
+
+  <script>
+    function launchGame() {
+      // Open the game in a new window
+      window.open(
+        "https://vercel-repo-eight-sable.vercel.app/game.html",
+        "_blank",
+        "width=1024,height=768,resizable=yes,scrollbars=yes"
+      );
+
+      // Hide the modal after launching
+      document.getElementById("permissionModal").style.display = "none";
+    }
+
+    function cancelLaunch() {
+      alert("Game launch canceled!");
+      document.getElementById("permissionModal").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
