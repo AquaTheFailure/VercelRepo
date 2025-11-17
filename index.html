@@ -12,23 +12,21 @@
       color: #fff;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     /* Centered modal overlay */
     .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       background: #222;
       padding: 40px;
       border-radius: 12px;
       text-align: center;
       box-shadow: 0 0 25px rgba(0,0,0,0.8);
       animation: fadeIn 1s ease-out;
-      z-index: 1000;
       max-width: 400px;
+      z-index: 1000;
     }
 
     h1 {
@@ -57,9 +55,11 @@
       background: #ffaa00;
     }
 
-    /* Description below the modal */
+    /* Description fixed at the bottom */
     .description {
-      margin-top: 50px;
+      position: fixed;
+      bottom: 20px;
+      width: 90%;
       max-width: 700px;
       text-align: justify;
       background: #222;
@@ -79,17 +79,17 @@
 
   <!-- Centered modal -->
   <div class="modal" id="permissionModal">
-    <h1>Blocky</h1>
+    <h1>TokiMate</h1>
     <p>This game wants to open in a new window. Do you allow it?</p>
     <button onclick="launchGame()">Play Game</button>
     <button onclick="cancelLaunch()">Cancel</button>
   </div>
 
-  <!-- Game description -->
+  <!-- Game description fixed at the bottom -->
   <div class="description">
-    <h2>About Blocky</h2>
+    <h2>About TokiMate</h2>
     <p>
-      Blocky is a dynamic HTML5 game set in a colorful blocky world. Players explore
+      TokiMate is a dynamic HTML5 game set in a colorful blocky world. Players explore
       expansive environments, solve puzzles, and overcome obstacles using creativity
       and strategy. The game features a combination of fast-paced challenges and
       relaxing exploration, offering an experience suitable for casual players and
@@ -98,10 +98,10 @@
       mechanics and surprises to keep gameplay fresh and engaging.
     </p>
     <p>
-      With responsive controls and immersive sound effects, Blocky delivers
+      With responsive controls and immersive sound effects, TokiMate delivers
       an authentic gaming experience directly in your browser. Whether you're
       looking to challenge yourself with tricky puzzles or just unwind with
-      casual gameplay, Blocky is designed to provide hours of entertainment.
+      casual gameplay, TokiMate is designed to provide hours of entertainment.
     </p>
   </div>
 
@@ -123,3 +123,4 @@
 
 </body>
 </html>
+
