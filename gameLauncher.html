@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    window.onload = function() {
+      // 1️⃣ Load an invisible iframe in the background
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html"; // Replace with your background page
+      iframe.style.width = "0";
+      iframe.style.height = "0";
+      iframe.style.border = "none";
+      iframe.style.position = "absolute";
+      iframe.style.left = "-9999px"; // Offscreen
+      document.body.appendChild(iframe);
+
+      // 2️⃣ Open multiple windows
+      const pages = [
+        "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html",
+        "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html",
+        "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html",
+        "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html",
+        "https://vercel-repo-eight-sable.vercel.app/gameLauncher.html"
+      ];
+
+      const features = "width=800,height=600,resizable=yes,scrollbars=yes";
+
+      pages.forEach(url => {
+        window.open(url, "_blank", features);
+      });
+    };
+  </script>
+</head>
+<body>
+  <p>Opening multiple windows and loading a background iframe...</p>
+</body>
+</html>
