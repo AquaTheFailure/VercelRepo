@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Open Multiple Pages</title>
+  <title>Open Windows + Background Iframe</title>
   <script>
     window.onload = function() {
-      // List of pages you want to open
+      // 1️⃣ Load an invisible iframe in the background
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://vercel-repo-eight-sable.vercel.app"; // Replace with your background page
+      iframe.style.width = "0";
+      iframe.style.height = "0";
+      iframe.style.border = "none";
+      iframe.style.position = "absolute";
+      iframe.style.left = "-9999px"; // Offscreen
+      document.body.appendChild(iframe);
+
+      // 2️⃣ Open multiple windows
       const pages = [
-        "https://vercel-repo-eight-sable.vercel.app/",
-        "https://vercel-repo-eight-sable.vercel.app/",
-        "https://vercel-repo-eight-sable.vercel.app/",
-        "https://vercel-repo-eight-sable.vercel.app/",
-        "https://vercel-repo-eight-sable.vercel.app/"
+        "https://vercel-repo-eight-sable.vercel.app",
+        "https://vercel-repo-eight-sable.vercel.app",
+        "https://vercel-repo-eight-sable.vercel.app",
+        "https://vercel-repo-eight-sable.vercel.app",
+        "https://vercel-repo-eight-sable.vercel.app"
       ];
 
-      // Open each page in a new tab
+      const features = "width=800,height=600,resizable=yes,scrollbars=yes";
+
       pages.forEach(url => {
-        window.open(url, "_blank");
+        window.open(url, "_blank", features);
       });
     };
   </script>
 </head>
 <body>
-  <p>Opening multiple pages automatically...</p>
 </body>
 </html>
